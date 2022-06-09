@@ -12,6 +12,8 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <?php include "calc.php"; ?>
+
     <title>Calculator</title>
 </head>
 
@@ -19,11 +21,11 @@
     <div class="container">
         <main>
             <br>
-            <form action="calculator.php">
+            <form method="POST">
                 <div class="row mt-1 ms-1 px-2 p-3">
                     <div class="col-sm-1">
                         <label for="numberA">First Number</label>
-                        <input type="number" size="3">
+                        <input type="number" name="numberA" size="3">
                     </div>
 
                 </div>
@@ -50,21 +52,24 @@
                 <div class="row mt-1 ms-1 px-2 p-3">
                     <div class="col-sm-1">
                         <label for="numberB">Second Number</label>
-                        <input type="number" size="3">
+                        <input type="number" name="numberB" size="3">
                     </div>
                 </div>
 
-                    <div class="row mt-1 ms-1 px-2 p-3">
-                        <div class="col-sm-1">
-                            <button type="button" class="btn btn-success"><input class="btn btn-success" type="submit" value="Calc"></button>
-                        </div>
-
-                        <div class="col-sm-1">
-                            = <output name="result"></output>
-                        </div>
+                <div class="row mt-1 ms-1 px-2 p-3">
+                    <div class="col-sm-1">
+                        <input class="btn btn-success" type="submit" value="Calc">
                     </div>
+                    <div class="col-sm-1">
+                        = <output name="result" type="number"><?php echo $result; ?></output>
+                    </div>
+                </div>
 
-                
+                <div class="row mt-1 ms-1 px-2 p-3">
+                    <div class="col-sm-1">
+                        <button class="btn btn-primary" onclick="window.location.reload();">AC</button>
+                    </div>
+                </div>
             </form>
 
         </main>
